@@ -1,4 +1,4 @@
-const CACHE_NAME = 'digifab-v1';
+const CACHE_NAME = 'digifab-v2';
 // Ide sorold fel az összes HTML fájlodat, ami a mappában van!
 const ASSETS = [
   './',
@@ -23,4 +23,5 @@ self.addEventListener('fetch', (event) => {
       return response || fetch(event.request);
     })
   );
+
 });
