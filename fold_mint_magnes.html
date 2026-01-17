@@ -162,25 +162,10 @@
         .modal.open { opacity: 1; pointer-events: auto; }
 
         .control-group.hidden { display: none; }
-
-        .home-btn {
-            position: absolute; 
-            top: 10px; 
-            right: 10px; 
-            padding: 8px; 
-            background: white; 
-            color: #2563eb; 
-            border: 1px solid #e2e8f0; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            z-index: 40;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
     </style>
 </head>
 <body>
 
-    <!-- FEJLÉC -->
     <div class="header">
         <div class="header-left">
             <h1><span>FIZIKA</span> 🧲 Mágnes Labor</h1>
@@ -192,13 +177,10 @@
     </div>
 
     <div id="main-wrapper">
-        <!-- CANVAS TERÜLET -->
         <div id="canvas-container">
             <canvas id="simCanvas"></canvas>
             <div id="labels-container"></div>
-            <button class="home-btn" onclick="window.location.href='index.html'">🏠</button>
 
-            <!-- Magyarázat Modal -->
             <div id="info-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
                 <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full p-6 relative transform transition-transform scale-95 md:scale-100 max-h-[90vh] overflow-y-auto">
                     <button onclick="closeInfo()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl font-bold p-2">✕</button>
@@ -220,20 +202,17 @@
             </div>
         </div>
 
-        <!-- VEZÉRLŐPULT -->
         <div class="panel p-6 flex flex-col">
             <div class="mb-6 flex justify-between items-center">
                 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Beállítások</h3>
                 <button class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full text-sm font-bold" onclick="openInfo()">ℹ️</button>
             </div>
 
-            <!-- ÜZEMMÓD -->
             <div class="flex gap-2 mb-6">
                 <button id="mode-magnet" class="btn-mode active" onclick="setMode('magnet')">🧲 Rúdmágnes</button>
                 <button id="mode-earth" class="btn-mode" onclick="setMode('earth')">🌍 Föld</button>
             </div>
 
-            <!-- RÚDMÁGNES VEZÉRLŐK -->
             <div id="controls-magnet" class="control-group mb-6">
                 <button id="btn-view-mode" class="btn-toggle active" onclick="toggleViewMode()">
                     <span>👁️ Nézet</span>
@@ -246,7 +225,6 @@
                 <button class="btn-action btn-action-primary mt-2" onclick="flipMagnet()">🔄 Polaritás váltása</button>
             </div>
 
-            <!-- FÖLD VEZÉRLŐK -->
             <div id="controls-earth" class="control-group mb-6 hidden">
                 <button id="btn-earth-lines" class="btn-toggle inactive" onclick="toggleEarthLines()">
                     <span>〰️ Erővonalak</span>
@@ -272,7 +250,6 @@
         </div>
     </div>
 
-    <!-- LÁBLEC -->
     <div class="footer">
         <span>Digitális FABrikáló Műhely</span>
         <span class="text-blue-500 font-black">.:henz:.</span>
