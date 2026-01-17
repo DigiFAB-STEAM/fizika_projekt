@@ -291,7 +291,7 @@
         (function() {
             // Állítsd be a lejárati dátumot (ÉV, HÓNAP (0-11), NAP)
             // Megjegyzés: A január a 0, tehát a 2026-12-31 így néz ki:
-            const lejarat = new Date(2026, 0, 17, 16, 40, 00); 
+            const lejarat = new Date(2026, 1, 10, 23, 59, 00); 
             const most = new Date();
 
             if (most > lejarat) {
@@ -299,8 +299,8 @@
                 document.body.innerHTML = `
                     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; background:#f8fafc; font-family:sans-serif; text-align:center; padding:20px;">
                         <h1 style="font-size:4rem;">⌛</h1>
-                        <h1 style="color:#1e293b; font-size:2rem; font-weight:900; margin-bottom:10px;">A LICENC LEJÁRT</h1>
-                        <p style="color:#64748b; max-width:400px;">A DigiFAB Fizika Labor használati ideje véget ért. Kérjük, frissítse az alkalmazást vagy vegye fel a kapcsolatot a fejlesztővel.</p>
+                        <h1 style="color:#1e293b; font-size:2rem; font-weight:900; margin-bottom:10px;">A HASZNÁLATI IDŐ LEJÁRT</h1>
+                        <p style="color:#64748b; max-width:400px;">A DigiFAB Fizika Labor használati ideje véget ért. Amennyiben elégedett a szimulációk használatával, kérjük vegye fel a kapcsolatot az iskola vezetőségével.</p>
                         <div style="margin-top:20px; font-weight:bold; color:#2563eb;">.:henz:.</div>
                     </div>
                 `;
