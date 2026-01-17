@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigiFAB - Interaktív Fizika Labor</title>
+    <title>DigiFAB Fizika Labor - Index</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -11,254 +11,286 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background-color: #f1f5f9;
+            color: #1e293b;
         }
 
-        .simulation-card {
+        .header {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 40px 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .grade-section {
+            margin-bottom: 48px;
+        }
+
+        .grade-title {
+            font-weight: 900;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #64748b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .grade-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #cbd5e1;
+        }
+
+        .sim-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
         }
 
-        .simulation-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        .sim-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+            border-color: #2563eb;
         }
 
-        .gradient-text {
-            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .sim-card .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background-color: #eff6ff;
+            color: #2563eb;
+            transition: background-color 0.3s;
         }
 
-        .emoji-bg {
+        .sim-card:hover .icon-wrapper {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .sim-title {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #1e293b;
+        }
+
+        .sim-desc {
+            font-size: 0.875rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .footer {
+            background-color: #0f172a;
+            padding: 32px 24px;
+            color: white;
+            text-align: center;
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .stats-badge {
             position: absolute;
-            top: -10px;
-            right: -10px;
-            font-size: 4rem;
-            opacity: 0.1;
-            transform: rotate(15deg);
-            pointer-events: none;
+            top: 12px;
+            right: 12px;
+            background: #f8fafc;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #94a3b8;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body>
 
-    <!-- FEJLÉC -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="bg-blue-600 p-2 rounded-xl">
-                    <i data-lucide="atom" class="text-white w-6 h-6"></i>
-                </div>
-                <div>
-                    <h1 class="text-xl font-black tracking-tighter text-slate-900 leading-none">DigiFAB</h1>
-                    <span class="text-[10px] font-bold text-blue-600 uppercase tracking-[0.2em]">Fizika Labor</span>
-                </div>
-            </div>
-            <div class="hidden md:flex items-center gap-6 text-sm font-bold text-slate-500 uppercase tracking-widest">
-                <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> Interaktív</span>
-                <span class="flex items-center gap-2"><i data-lucide="smartphone" class="w-4 h-4 text-emerald-500"></i> Reszponzív</span>
-            </div>
+    <header class="header">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-4xl font-black tracking-tight mb-2">DigiFAB Fizika Labor</h1>
+            <p class="text-blue-100 font-medium">Interaktív szimulációk és kísérletek gyűjteménye</p>
         </div>
     </header>
 
-    <!-- HŐS SZEKCIÓ -->
-    <section class="bg-white py-12 md:py-20 border-b border-slate-100">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">
-                Fedezd fel a fizika <span class="gradient-text">világát!</span> 🚀
-            </h2>
-            <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
-                Interaktív szimulációk gyűjteménye általános és középiskolások számára. Értsd meg a törvényszerűségeket látványos kísérleteken keresztül! 🧪✨
-            </p>
-        </div>
-    </section>
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <!-- 6. OSZTÁLY: Mérések és Mechanika alapjai -->
+        <section class="grade-section">
+            <h2 class="grade-title"><i data-lucide="ruler" class="w-4 h-4"></i> 6. OSZTÁLY</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <a href="szilard_folyekony_test_terfogata.html" class="sim-card">
+                    <span class="stats-badge">Mérések</span>
+                    <div class="icon-wrapper">🧪</div>
+                    <h3 class="sim-title">Térfogatmérés kiszorítással</h3>
+                    <p class="sim-desc">Hogyan mérjük meg egy szabálytalan test térfogatát mérőhenger segítségével?</p>
+                </a>
 
-    <!-- SZIMULÁCIÓ RÁCS -->
-    <main class="container mx-auto px-6 py-12 flex-grow">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- Az erő alapjai -->
-            <a href="ero_alapjai.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">⚡</span>
-                <div class="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                    <i data-lucide="move" class="text-blue-600 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Az erő alapjai ⚡</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">Newton törvényei, vektoros ábrázolás és az erők hatásai a testekre.</p>
-                <div class="flex items-center gap-2 text-blue-600 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+                <a href="descartes_búvár.html" class="sim-card">
+                    <span class="stats-badge">Hidrosztatika</span>
+                    <div class="icon-wrapper">🤿</div>
+                    <h3 class="sim-title">Descartes-búvár</h3>
+                    <p class="sim-desc">A nyomás és a felhajtóerő kapcsolata folyadékokban és gázokban.</p>
+                </a>
 
-            <!-- Descartes-búvár -->
-            <a href="descartes_búvár.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">🤿</span>
-                <div class="bg-cyan-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-cyan-600 transition-colors">
-                    <i data-lucide="waves" class="text-cyan-600 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Descartes-búvár 🤿</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">A nyomás és a felhajtóerő kapcsolata folyadékokban. Miért süllyed el a búvár?</p>
-                <div class="flex items-center gap-2 text-cyan-600 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+                <a href="hidraulikus_emelo.html" class="sim-card">
+                    <span class="stats-badge">Pascal-törvény</span>
+                    <div class="icon-wrapper">⚖️</div>
+                    <h3 class="sim-title">Hidraulikus emelő</h3>
+                    <p class="sim-desc">Hogyan sokszorozható meg az erő a folyadékok nyomásának segítségével?</p>
+                </a>
 
-            <!-- Egyszerű gépek -->
-            <a href="egyszeru_gepek.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">🏗️</span>
-                <div class="bg-orange-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-600 transition-colors">
-                    <i data-lucide="settings" class="text-orange-600 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Egyszerű gépek 🏗️</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">Emelők és lejtők fizikája. Hogyan takaríthatunk meg erőt az út rovására?</p>
-                <div class="flex items-center gap-2 text-orange-600 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+                <a href="hazi_spirometer.html" class="sim-card">
+                    <span class="stats-badge">Gázok nyomása</span>
+                    <div class="icon-wrapper">🫁</div>
+                    <h3 class="sim-title">Házi Spirométer</h3>
+                    <p class="sim-desc">Tüdőkapacitás mérése a kiszorított víz és a légnyomás elvén.</p>
+                </a>
 
-            <!-- Elektrosztatikus feltöltődés -->
-            <a href="elektrosztatikus_feltoltodes.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">🌩️</span>
-                <div class="bg-yellow-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-yellow-600 transition-colors">
-                    <i data-lucide="zap" class="text-yellow-600 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Elektrosztatika 🌩️</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">Töltések mozgása, dörzselektromosság és az elektromos megosztás jelensége.</p>
-                <div class="flex items-center gap-2 text-yellow-600 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+            </div>
+        </section>
 
-            <!-- Fénytörés és visszaverődés -->
-            <a href="fenytores_es_visszaverodes.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">🔦</span>
-                <div class="bg-indigo-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-indigo-600 transition-colors">
-                    <i data-lucide="sun" class="text-indigo-600 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Fénytan alapok 🔦</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">A fény útja különböző közegek határán. Törésmutató és visszaverődés.</p>
-                <div class="flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+        <!-- 7. OSZTÁLY: Hőtan és Halmazállapotok -->
+        <section class="grade-section">
+            <h2 class="grade-title"><i data-lucide="thermometer" class="w-4 h-4"></i> 7. OSZTÁLY</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <!-- Halvadász -->
-            <a href="fenytores_halvadasz.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">🐟</span>
-                <div class="bg-emerald-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition-colors">
-                    <i data-lucide="target" class="text-emerald-600 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Halvadász játék 🐟</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">Alkalmazott fénytörés. Miért nem ott van a hal, ahol a szemünkkel látjuk?</p>
-                <div class="flex items-center gap-2 text-emerald-600 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+                <a href="viz_ halmazallapotai.html" class="sim-card">
+                    <span class="stats-badge">Halmazállapotok</span>
+                    <div class="icon-wrapper">❄️</div>
+                    <h3 class="sim-title">Víz halmazállapotai</h3>
+                    <p class="sim-desc">A jég, a víz és a gőz szerkezete mikroszkopikus nézetben.</p>
+                </a>
 
-            <!-- Házi Spirométer -->
-            <a href="hazi_spirometer.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">🫁</span>
-                <div class="bg-red-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-red-600 transition-colors">
-                    <i data-lucide="wind" class="text-red-600 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Házi Spirométer 🫁</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">A tüdőkapacitás mérése és a gázok nyomásának fizikai szemléltetése.</p>
-                <div class="flex items-center gap-2 text-red-600 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+                <a href="paralecsapodas.html" class="sim-card">
+                    <span class="stats-badge">Hőtan</span>
+                    <div class="icon-wrapper">🌫️</div>
+                    <h3 class="sim-title">Lecsapódás kísérlet</h3>
+                    <p class="sim-desc">A gőz halmazállapot-változásának vizsgálata hideg felületen.</p>
+                </a>
 
-            <!-- Hidraulikus emelő -->
-            <a href="hidraulikus_emelo.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">⚖️</span>
-                <div class="bg-slate-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-slate-800 transition-colors">
-                    <i data-lucide="arrow-up-to-line" class="text-slate-800 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Hidraulikus emelő ⚖️</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">Pascal törvénye a gyakorlatban. Hogyan emelhetünk nehéz terheket kis erővel?</p>
-                <div class="flex items-center gap-2 text-slate-800 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+                <a href="viz_anomaliaja.html" class="sim-card">
+                    <span class="stats-badge">Sűrűség</span>
+                    <div class="icon-wrapper">🏞️</div>
+                    <h3 class="sim-title">A víz anomáliája</h3>
+                    <p class="sim-desc">Miért nem fagynak meg a tavak fenékig? A 4°C-os víz titka.</p>
+                </a>
 
-            <!-- Képalkotás lencsékkel -->
-            <a href="kepalkotas_lencsekkel.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">🐌</span>
-                <div class="bg-purple-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors">
-                    <i data-lucide="eye" class="text-purple-600 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Lencsék világa 🐌</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">Gyűjtő- és szórólencsék képalkotásának interaktív vizsgálata egy csigával.</p>
-                <div class="flex items-center gap-2 text-purple-600 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+            </div>
+        </section>
 
-            <!-- Szemhibák javítása -->
-            <a href="szemhibak_javitasa.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">👁️</span>
-                <div class="bg-sky-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-sky-600 transition-colors">
-                    <i data-lucide="glasses" class="text-sky-600 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Látásjavítás 👁️</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">A rövidlátás és távollátás korrigálása különböző lencsetípusokkal.</p>
-                <div class="flex items-center gap-2 text-sky-600 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+        <!-- 8. OSZTÁLY: Optika és Erőtan -->
+        <section class="grade-section">
+            <h2 class="grade-title"><i data-lucide="zap" class="w-4 h-4"></i> 8. OSZTÁLY</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <a href="szemhibak_javitasa.html" class="sim-card">
+                    <span class="stats-badge">Optika</span>
+                    <div class="icon-wrapper">👓</div>
+                    <h3 class="sim-title">Szemhibák javítása</h3>
+                    <p class="sim-desc">Rövidlátás és távollátás korrekciója szemüveglencsék segítségével.</p>
+                </a>
 
-            <!-- Térfogatmérés -->
-            <a href="szilard_folyekony_test_terfogata.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">💧</span>
-                <div class="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                    <i data-lucide="droplets" class="text-blue-600 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Térfogatmérés 💧</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">Szilárd testek térfogatának meghatározása folyadékkiszorítással.</p>
-                <div class="flex items-center gap-2 text-blue-600 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+                <a href="kepalkotas_lencsekkel.html" class="sim-card">
+                    <span class="stats-badge">Lencsék</span>
+                    <div class="icon-wrapper">🐌</div>
+                    <h3 class="sim-title">Képalkotás lencsékkel</h3>
+                    <p class="sim-desc">Gyűjtő- és szórólencsék sugármenetei és a kép jellemzői.</p>
+                </a>
 
-            <!-- Víz halmazállapotai -->
-            <a href="viz_ halmazallapotai.html" class="simulation-card relative overflow-hidden bg-white p-8 rounded-[2rem] border border-slate-200 group">
-                <span class="emoji-bg">🧊</span>
-                <div class="bg-slate-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-slate-500 transition-colors">
-                    <i data-lucide="thermometer-snowflake" class="text-slate-500 w-7 h-7 group-hover:text-white"></i>
-                </div>
-                <h3 class="text-xl font-black text-slate-800 mb-2">Halmazállapotok 🧊</h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-4">A víz molekuláris szintű mozgása a hőmérséklet változásának hatására.</p>
-                <div class="flex items-center gap-2 text-slate-500 font-black text-xs uppercase tracking-widest">
-                    Indítás <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </div>
-            </a>
+                <a href="fenytores_es_visszaverodes.html" class="sim-card">
+                    <span class="stats-badge">Fénytan</span>
+                    <div class="icon-wrapper">🔦</div>
+                    <h3 class="sim-title">Fénytörés és visszaverődés</h3>
+                    <p class="sim-desc">A Snellius-Descartes törvény vizsgálata különböző közeghatárokon.</p>
+                </a>
 
-        </div>
+                <a href="fenytores_halvadasz.html" class="sim-card">
+                    <span class="stats-badge">Optikai csalódás</span>
+                    <div class="icon-wrapper">🐟</div>
+                    <h3 class="sim-title">Fénytörés (Halvadász)</h3>
+                    <p class="sim-desc">Miért látjuk máshol a tárgyakat a víz alatt? Gyakorlati optika.</p>
+                </a>
+
+                <a href="ero_alapjai.html" class="sim-card">
+                    <span class="stats-badge">Dinamika</span>
+                    <div class="icon-wrapper">⚡</div>
+                    <h3 class="sim-title">Az erő alapjai</h3>
+                    <p class="sim-desc">Erővektorok ábrázolása, hatások és Newton törvényei interaktívan.</p>
+                </a>
+
+                <a href="egyszeru_gepek.html" class="sim-card">
+                    <span class="stats-badge">Mechanika</span>
+                    <div class="icon-wrapper">🏗️</div>
+                    <h3 class="sim-title">Egyszerű gépek</h3>
+                    <p class="sim-desc">Emelők, lejtők és az arany szabály: erőt nyerünk, de utat vesztünk.</p>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- 9. OSZTÁLY: Elektromosság és Mágnesesség -->
+        <section class="grade-section">
+            <h2 class="grade-title"><i data-lucide="atom" class="w-4 h-4"></i> 9. OSZTÁLY</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <a href="elektrosztatikus_feltoltodes.html" class="sim-card">
+                    <span class="stats-badge">Elektrosztatika</span>
+                    <div class="icon-wrapper">🎈</div>
+                    <h3 class="sim-title">Elektrosztatikus erő</h3>
+                    <p class="sim-desc">Töltések átadása dörzsöléssel és a Coulomb-erő szemléltetése.</p>
+                </a>
+
+                <a href="fold_mint_magnes.html" class="sim-card">
+                    <span class="stats-badge">Mágnesesség</span>
+                    <div class="icon-wrapper">🧲</div>
+                    <h3 class="sim-title">Mágnes Labor</h3>
+                    <p class="sim-desc">Mágneses erővonalak, iránytű és a Föld mágneses terének vizsgálata.</p>
+                </a>
+
+            </div>
+        </section>
+
     </main>
 
-    <!-- LÁBLEC -->
-    <footer class="bg-slate-900 py-12 text-white">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left">
-                <h4 class="text-lg font-black tracking-tighter mb-2">DigiFAB Fizika Labor 🧪</h4>
-                <p class="text-slate-400 text-xs uppercase tracking-[0.2em]">Digitális FABrikáló Műhely</p>
+    <footer class="footer">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex flex-col items-center md:items-start">
+                <span class="font-black text-blue-500 text-lg tracking-tighter mb-1">DigiFAB</span>
+                <span class="opacity-60">Digitális FABrikáló Műhely</span>
             </div>
-            <div class="flex items-center gap-4">
-                <span class="text-blue-500 font-black text-sm uppercase tracking-widest">.:henz:.</span>
-                <div class="h-8 w-px bg-slate-800"></div>
-                <span class="text-slate-500 text-xs font-bold">2025 © Minden jog fenntartva</span>
+            <div class="text-center md:text-right">
+                <p>Készítette: <strong>Henzel György</strong></p>
+                <p class="opacity-50">Fizika interaktív tananyagok &copy; 2026</p>
             </div>
         </div>
     </footer>
 
-   <script>
+    <script>
         lucide.createIcons();
 
         // --- IDŐKORLÁT BEÁLLÍTÁSA ---
         (function() {
             // Állítsd be a lejárati dátumot (ÉV, HÓNAP (0-11), NAP)
             // Megjegyzés: A január a 0, tehát a 2026-12-31 így néz ki:
-            const lejarat = new Date(2026, 0, 17, 0, 5, 59); 
+            const lejarat = new Date(2026, 0, 17, 16, 30, 00); 
             const most = new Date();
 
             if (most > lejarat) {
@@ -266,7 +298,7 @@
                 document.body.innerHTML = `
                     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; background:#f8fafc; font-family:sans-serif; text-align:center; padding:20px;">
                         <h1 style="font-size:4rem;">⌛</h1>
-                        <h1 style="color:#1e293b; font-size:2rem; font-weight:900; margin-bottom:10px;">A LICENC LEJÁRT</h1>
+                        <h1 style="color:#1e293b; font-size:2rem; font-weight:900; margin-bottom:10px;">A HASZNÁLATI IDŐ LEJÁRT</h1>
                         <p style="color:#64748b; max-width:400px;">A DigiFAB Fizika Labor használati ideje véget ért. Kérjük, frissítse az alkalmazást vagy vegye fel a kapcsolatot a fejlesztővel.</p>
                         <div style="margin-top:20px; font-weight:bold; color:#2563eb;">.:henz:.</div>
                     </div>
@@ -276,11 +308,4 @@
         })();
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
