@@ -301,7 +301,7 @@
                     <hr class="border-slate-100 my-1">
 
                     <label class="checkbox-item" id="labelShowImage">
-                        <input type="checkbox" id="checkShowImage">
+                        <input type="checkbox" id="checkShowImage" checked>
                         <span><span class="legend-dot bg-slate-400"></span> Kép megjelenítése</span>
                     </label>
                 </div>
@@ -450,7 +450,7 @@
         checkCenter.checked = false;
         checkFocal.checked = false;
         checkSun.checked = false; 
-        checkShowImage.checked = false; 
+        checkShowImage.checked = true; // Módosítva: alapállapotban igaz
         updateControlState();
     }
 
