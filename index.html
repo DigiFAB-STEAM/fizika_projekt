@@ -502,5 +502,28 @@
             })();
         });
     </script>
+    <script>
+        // 1. Meglévő ikonok betöltése (ha már ott van, ne másold le mégegyszer)
+        lucide.createIcons();
+
+        // 2. A PWA regisztrációs kód (ez az egyik "PWA kód")
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+
+        // 3. A QR-kód nyitó/záró funkciói
+        function openQR() {
+            document.getElementById('qrModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQR() {
+            document.getElementById('qrModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // --- Ide jöhet az időkorlát kódja is, amit korábban megbeszéltünk ---
+    </script>
 </body>
+
 </html>
