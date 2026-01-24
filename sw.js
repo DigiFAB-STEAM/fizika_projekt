@@ -1,5 +1,5 @@
 // Minden módosítás után írd át a verziószámot (v1 -> v2, v2 -> v3, stb.)
-const CACHE_NAME = 'digifab-v3';
+const CACHE_NAME = 'digifab-v4';
 
 const ASSETS = [
   './',
@@ -41,3 +41,4 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+
